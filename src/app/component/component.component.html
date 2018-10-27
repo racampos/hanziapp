@@ -1,0 +1,29 @@
+<div class="col col-xs-6 component-item hsk{{component_data['hsk_level']}}">
+    <div class="col col-xs-4">
+        <div class="row">
+            <div class="col col-xs-12 component-char">
+                    <span>{{component}}</span>
+            </div>
+            <div class="col col-xs-12 component-pinyin">
+                <span>{{component_data["pinyin"]}}</span>
+            </div>  
+        </div>
+    </div>
+    <div class="col col-xs-2 component-level">
+        <div class="row">
+            <div class="col col-xs-12 hsk-text">
+                <span>HSK</span>
+            </div>
+            <div class="col col-xs-12 hsk-level">
+                <span>{{component_data["hsk_level"]}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col col-xs-6 component-level">
+        <div class="row">
+            <div class="col col-xs-12 compound-definition">
+                <span>{{component_data["definition"]}}</span>
+            </div>
+        </div>
+    </div>  
+</div>

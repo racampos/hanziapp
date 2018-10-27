@@ -1,0 +1,42 @@
+<div class="panel panel-default panel-table">
+    <div class="panel-heading">
+        <h3 class="panel-title compound-title text-center">Compounds with {{char}}</h3>
+    </div>
+    <div class="row">
+        <div class="col col-md-12">
+            <ul class="list-group"> 
+                <li *ngFor="let hanzi of compounds" class="list-group-item hsk{{hanzi.hsk_level}}">
+                    <div class="row align-middle">
+                        <div class="col col-xs-4">
+                            <div class="row">
+                                <div class="col col-xs-12 component-char">
+                                        <span>{{hanzi.character}}</span>
+                                </div>
+                                <div class="col col-xs-12 component-pinyin">
+                                    <span>{{hanzi.pinyin}}</span>
+                                </div>  
+                            </div>
+                        </div>
+                        <div class="col col-xs-2 component-level">
+                                <div class="row">
+                                    <div class="col col-xs-12 hsk-text">
+                                        <span>HSK</span>
+                                    </div>
+                                    <div class="col col-xs-12 hsk-level">
+                                        <span>{{hanzi.hsk_level}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="col col-xs-6 component-level">
+                            <div class="row">
+                                <div class="col col-xs-12 compound-definition">
+                                    <span>{{hanzi.definition}}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

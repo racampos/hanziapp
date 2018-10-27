@@ -1,21 +1,57 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="container">
+    <div class="row">
+        <div class="row">
+            <div class="col-md-7">
+                <h1 class="main-title">Chinese character decomposition</h1>
+            </div>
+            <div class="col-md-3">
+                <h4 class="hsk-color-code-caption">HSK Color Code:</h4>
+            </div>
+            <div class="col-md-2">
+                <div class="row row-hsk-color-code">
+                    <div class="col col-md-2 hsk-color-code hsk1">1</div>
+                    <div class="col col-md-2 hsk-color-code hsk2">2</div>
+                    <div class="col col-md-2 hsk-color-code hsk3">3</div>
+                    <div class="col col-md-2 hsk-color-code hsk4">4</div>
+                    <div class="col col-md-2 hsk-color-code hsk5">5</div>
+                    <div class="col col-md-2 hsk-color-code hsk6">6</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div style="padding-bottom: 20px;" class="col-md-12">
+                <h3 style="text-align: center;"><input style="margin-top: 0px; padding: 6px;" type="text" size="20"><input style="margin: 3px;font-size: 15px; padding: 15px; padding-bottom: 8px; font-weight: 400" type="submit" value="Decompose"></h3>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4" style="margin-top: 5px; padding: 15px">
+                <app-main-character [character]="main_character"></app-main-character>
+            </div>
+            <div class="col-md-8">
+                <div class="panel panel-default panel-table">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col col-xs-12">
+                                <h3 class="panel-title components-title text-center">Components of {{main_character['character']}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row component-row align-middle">
+                            <app-component [component]="main_character['component1']"></app-component>
+                            <app-component [component]="main_character['component2']"></app-component>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-xs-6">
+                        <app-compound [char]="'日'"></app-compound>
+                    </div>
+                    <div class="col col-xs-6">
+                        <app-compound [char]="'月'"></app-compound>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
-
-<router-outlet></router-outlet>

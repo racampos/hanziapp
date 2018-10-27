@@ -1,1 +1,200 @@
-/* You can add global styles to this file, and also import other style files */
+.main-title{
+    margin-bottom: 30px;
+}
+
+.compound-title{
+    font-size: 18px;
+    color: white;
+}
+
+.component-row{
+    margin-right: 0;
+    margin-left: 0;
+}
+
+.component-item{
+    padding: 10px;
+}
+
+.components-title{
+    color: white;
+}
+
+.compound-definition{
+    font-size: 14px; 
+    padding: 15px;
+}
+
+.main-char{
+    font-size: 150px;
+    text-align: center;
+}
+
+.main-pinyin{
+    font-size: 40px;
+    text-align: center;
+    padding-bottom: 15px;
+}
+
+.main-definition{
+    font-size: 20px;
+    text-align: center;
+    padding-bottom: 25px;
+}
+
+.main-hsk-level{
+    font-size: 25px;
+    text-align: center;
+    padding-top: 15px;
+}
+.hsk-level{
+    font-size: 40px;
+}
+
+.row-hsk-color-code{
+    padding: 15px;
+}
+
+.hsk-color-code{
+    padding: 10px;
+}
+
+.hsk-color-code-caption{
+    text-align: right;
+    margin-top: 25px;
+    font-size: 17px;
+}
+
+.hsk1{
+    background-color: #98f858;
+}
+
+.hsk2{
+    background-color: #fdfa45;
+}
+
+.hsk3{
+    background-color: #fd9845;
+}
+
+.hsk4{
+    background-color: #ff7979;
+}
+
+.hsk5{
+    background-color: #93b0fd;
+}
+
+.hsk6{
+    background-color: #cb94ff;
+}
+
+.hsk-text{
+    font-size: 13px;
+}
+
+.list-group-item{
+    border: 0;
+}
+
+.list-group-item:first-of-type{
+    border-top: 0;
+    border-radius: 0;   
+}
+
+.list-group-item:last-of-type{
+    border-radius: 0;   
+}
+
+.table{
+    table-layout: fixed;
+}
+
+.component-level{
+    font-size: 18px;
+    padding-top: 10px;
+}
+
+.component-char{
+    font-size: 50px;
+    text-align: center;
+}
+
+.component-pinyin{
+    font-size: 20px;
+    text-align: center;
+}
+
+.panel{
+    margin-top: 20px;
+    border-color: #555;
+    box-shadow: none;
+    border: 0;
+}
+
+.panel-table .panel-heading{
+    background-color: #555;
+    padding: 8px;
+    border-radius: 0;
+}
+
+.panel-table .panel-body{
+    padding:0;
+  }
+  
+.panel-table .panel-body .table-bordered{
+    border-style: none;
+    margin:0;
+  }
+  
+  .panel-table .panel-body .table-bordered > thead > tr > th {
+      text-align:center;
+      font-size: 40px;
+  }
+
+  .panel-table .panel-body .table-bordered > tbody > tr > td {
+    text-align:center;
+    font-size: 28px;
+}
+  
+  .panel-table .panel-body .table-bordered > thead > tr > th:last-of-type,
+  .panel-table .panel-body .table-bordered > tbody > tr > td:last-of-type {
+    border-right: 0px;
+  }
+  
+  .panel-table .panel-body .table-bordered > thead > tr > th:first-of-type,
+  .panel-table .panel-body .table-bordered > tbody > tr > td:first-of-type {
+    border-left: 0px;
+  }
+  
+  .panel-table .panel-body .table-bordered > tbody > tr:first-of-type > td{
+    border-bottom: 0px;
+  }
+  
+  .panel-table .panel-body .table-bordered > thead > tr:first-of-type > th{
+    border-top: 0px;
+  }
+  
+  .panel-table .panel-footer .pagination{
+    margin:0; 
+  }
+  
+  /*
+  used to vertically center elements, may need modification if you're not using default sizes.
+  */
+  .panel-table .panel-footer .col{
+   line-height: 34px;
+   height: 34px;
+  }
+  
+  .panel-table .panel-heading .col h3{
+    line-height: 30px;
+    height: 30px;
+    font-size: 20px;
+  }
+  
+  .panel-table .panel-body .table-bordered > tbody > tr > td{
+    line-height: 34px;
+  }
+  
+  
