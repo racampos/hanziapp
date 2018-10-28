@@ -1,15 +1,15 @@
 <div class="row">
-    <div class="col col-md-10 col-md-offset-1 main-hsk-level hsk{{character['hsk_level']}}">
+    <div class="col col-md-10 col-md-offset-1 main-hsk-level" [ngClass]="character['hsk_class']">
         <span>HSK {{character['hsk_level']}}</span>
     </div>
-    <div class="col col-md-10 col-md-offset-1 main-char hsk{{character['hsk_level']}}">
+    <div class="col col-md-10 col-md-offset-1 main-char" [ngClass]="character['hsk_class']">
         <span>{{character['character']}}</span>
     </div>
     
-    <div class="col col-md-10 col-md-offset-1 main-pinyin hsk{{character['hsk_level']}}">
+    <div class="col col-md-10 col-md-offset-1 main-pinyin" [ngClass]="character['hsk_class']">
         <span>{{character['pinyin']}}</span>
     </div>
-    <div class="col col-md-10 col-md-offset-1 main-definition hsk{{character['hsk_level']}}">
+    <div class="col col-md-10 col-md-offset-1 main-definition" [ngClass]="character['hsk_class']">
         <span>{{character['definition']}}</span>
     </div>
 </div>

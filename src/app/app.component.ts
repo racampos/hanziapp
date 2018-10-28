@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import {Router, ActivatedRoute, Params} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,32 +9,56 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  dummy_query: string;
-  main_character: string;
+  @Input() next_char: string;
+
+  main_character: Object;
+  loading: boolean;
+  character_to_query: string;
 
   title = 'hanziapp';
   
 
-  constructor() {
-    this.dummy_query = `{
-        "stroke_count": "8",
-        "hsk_level": "1",
-        "radical": {
-          "kangxi": "72",
-          "character": "日"
-        },
-        "definition": "bright, light, brilliant; clear",
-        "general_std_number": "1087",
-        "pinyin": "míng",
-        "component1": "日",
-        "character": "明",
-        "freq_rank": "121",
-        "component2": "月"
-      }`
+  constructor(private http: HttpClient,
+              private route: ActivatedRoute,
+              private router: Router) {
   }
 
   ngOnInit() {
-    this.main_character = JSON.parse(this.dummy_query);
+    this.route.queryParams.subscribe(params => {
+      this.character_to_query = params["char"];
+      this.makeRequest();
+    })
+    
+  }
+
+  btnClick= function () {
+    this.router.navigateByUrl('/?char=' + this.next_char);
+  };
+
+  onKeydown(event) {
+    if (event.key === "Enter") {
+      this.router.navigateByUrl('/?char=' + this.next_char);
+    }
+  }
+
+  makeRequest(): void { 
+    this.loading = true; 
+    this.http
+      .get('https://780w5o5jsh.execute-api.us-east-1.amazonaws.com/production/hanzi?char=' + this.character_to_query)
+      .subscribe(data => {
+        if (data){
+          this.main_character = data;
+          this.main_character["hsk_class"] = "hsk" + this.main_character["hsk_level"];
+        } else {
+          this.main_character = {character: this.character_to_query,
+                                 definition: "Character not in HSK", 
+                                 hsk_level: "?",
+                                 pinyin: "-",
+                                 hsk_class: "hsk_none",
+                                 component1: "N/A",
+                                 component2: "N/A"}
+        }
+        this.loading = false; });
   }
 
 }

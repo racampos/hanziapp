@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-component',
@@ -8,49 +10,48 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ComponentComponent implements OnInit {
 
   @Input() component: string;
-  dummy_data: string;
-  component_data: string;
+  @Input() position: string;
+  component_data: Object;
+  loading: boolean;
 
-  constructor() { 
+  constructor(private http: HttpClient) { 
     
-
   }
 
   ngOnInit() {
-    if (this.component == "日" ) {
-      this.dummy_data = `{
-        "stroke_count": "4",
-        "hsk_level": "2",
-        "radical": {
-          "kangxi": "72",
-          "character": "日"
-        },
-        "definition": "sun; day; daytime",
-        "general_std_number": "0112",
-        "pinyin": "rì",
-        "component1": "N/A",
-        "character": "日",
-        "freq_rank": "101",
-        "component2": "N/A"
-      }`
-    } else {
-      this.dummy_data = `{
-        "stroke_count": "4",
-        "hsk_level": "1",
-        "radical": {
-          "kangxi": "74",
-          "character": "月"
-        },
-        "definition": "moon; month; KangXi radical 74",
-        "general_std_number": "0150",
-        "pinyin": "yuè",
-        "component1": "N/A",
-        "character": "月",
-        "freq_rank": "169",
-        "component2": "N/A"
-      }`
-    }
-    this.component_data = JSON.parse(this.dummy_data)
+    //this.component_data = JSON.parse(`[{"stroke_count":"5","hsk_level":"3","radical":{"kangxi":"61","character":"心"},"definition":"surely, most certainly; must","general_std_number":"0321","pinyin":"bì","component1":"心","character":"必","freq_rank":"248","component2":"丿"}]`);
+    this.makeRequest();
   }
+
+  ngOnChanges() {
+    this.makeRequest();
+  }
+
+  makeRequest(): void { 
+    this.loading = true; 
+    this.http
+      .get('https://780w5o5jsh.execute-api.us-east-1.amazonaws.com/production/hanzi?char=' + this.component)
+      .subscribe(data => {
+        if (data){
+          this.component_data = data;
+          this.component_data["hsk_class"] = "hsk" + this.component_data["hsk_level"];
+        } else {
+          this.component_data = {character: this.component_data,
+                                 definition: "Character not in HSK", 
+                                 hsk_level: "?",
+                                 pinyin: "-",
+                                 hsk_class: "hsk_none"}
+        }  
+        this.loading = false; });
+  }
+
+  // makeRequest(): void { 
+  //   this.loading = true; 
+  //   this.http
+  //     .get('https://780w5o5jsh.execute-api.us-east-1.amazonaws.com/production/hanzi/compounds?position=' + this.position + '&component=' + this.component)
+  //     .subscribe(data => {
+  //       this.component_data = data;
+  //       this.loading = false; });
+  // }
 
 }

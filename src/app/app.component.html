@@ -20,14 +20,17 @@
         </div>
         <div class="row">
             <div style="padding-bottom: 20px;" class="col-md-12">
-                <h3 style="text-align: center;"><input style="margin-top: 0px; padding: 6px;" type="text" size="20"><input style="margin: 3px;font-size: 15px; padding: 15px; padding-bottom: 8px; font-weight: 400" type="submit" value="Decompose"></h3>
+                <h3 style="text-align: center;">
+                    <input [disabled]="loading" [(ngModel)]="next_char" (keydown)="onKeydown($event);" style="margin-top: 0px; padding: 6px;" type="text" size="20">
+                    <input [disabled]="loading" (click)="btnClick();" style="margin: 3px;font-size: 15px; padding: 15px; padding-bottom: 8px; font-weight: 400" type="submit" value="Decompose">
+                </h3>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4" style="margin-top: 5px; padding: 15px">
                 <app-main-character [character]="main_character"></app-main-character>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-8" *ngIf="main_character['component1'] != 'N/A'">
                 <div class="panel panel-default panel-table">
                     <div class="panel-heading">
                         <div class="row">
@@ -38,8 +41,8 @@
                     </div>
                     <div class="panel-body">
                         <div class="row component-row align-middle">
-                            <app-component [component]="main_character['component1']"></app-component>
-                            <app-component [component]="main_character['component2']"></app-component>
+                            <app-component [component]="main_character['component1']" [position]="'1'"></app-component>
+                            <app-component [component]="main_character['component2']" [position]="'2'"></app-component>
                         </div>
                     </div>
                 </div>
