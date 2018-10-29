@@ -89,16 +89,26 @@
     background-color: #cb94ff;
 }
 
-.hsk_none{
+.hskNone{
     background-color: #bbbbbb;
+}
+
+.hskR{
+    background-color: #aefafa;
 }
 
 .hsk-text{
     font-size: 13px;
 }
 
+.char_link{
+    color: blue;
+}
+
 .list-group-item{
-    border: 0;
+    border-top: 2px solid white;
+    border-right: 0;
+    border-left: 0;
 }
 
 .list-group-item:first-of-type{

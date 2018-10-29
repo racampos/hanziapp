@@ -1,6 +1,6 @@
 <div class="panel panel-default panel-table">
     <div class="panel-heading">
-        <h3 class="panel-title compound-title text-center">Compounds with {{char}}</h3>
+        <h3 class="panel-title compound-title text-center">Compounds with {{component}} ({{compounds.length}})</h3>
     </div>
     <div class="row">
         <div class="col col-md-12">
@@ -10,7 +10,7 @@
                         <div class="col col-xs-4">
                             <div class="row">
                                 <div class="col col-xs-12 component-char">
-                                        <span>{{hanzi.character}}</span>
+                                        <span style="cursor: pointer;" (click)="charClick(hanzi.character);">{{hanzi.character}}</span>
                                 </div>
                                 <div class="col col-xs-12 component-pinyin">
                                     <span>{{hanzi.pinyin}}</span>

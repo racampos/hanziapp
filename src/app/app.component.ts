@@ -31,15 +31,17 @@ export class AppComponent {
     
   }
 
-  btnClick= function () {
+  btnClick = function () {
     this.router.navigateByUrl('/?char=' + this.next_char);
+    this.next_char = "";
   };
 
   onKeydown(event) {
     if (event.key === "Enter") {
       this.router.navigateByUrl('/?char=' + this.next_char);
+      this.next_char = "";
     }
-  }
+  };
 
   makeRequest(): void { 
     this.loading = true; 
@@ -54,7 +56,7 @@ export class AppComponent {
                                  definition: "Character not in HSK", 
                                  hsk_level: "?",
                                  pinyin: "-",
-                                 hsk_class: "hsk_none",
+                                 hsk_class: "hskNone",
                                  component1: "N/A",
                                  component2: "N/A"}
         }
