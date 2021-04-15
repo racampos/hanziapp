@@ -37,7 +37,7 @@ export class ComponentComponent implements OnInit {
   makeRequest(): void { 
     this.loading = true; 
     this.http
-      .get('https://780w5o5jsh.execute-api.us-east-1.amazonaws.com/production/hanzi?char=' + this.component)
+      .get('https://hanziapi.altusdemo.cloud/v1/hanzi?char=' + this.component)
       .subscribe(data => {
         if (data){
           this.component_data = data;

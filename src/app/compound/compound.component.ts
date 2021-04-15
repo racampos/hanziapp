@@ -36,7 +36,7 @@ export class CompoundComponent implements OnInit {
   makeRequest(): void { 
     this.loading = true; 
     this.http
-      .get('https://780w5o5jsh.execute-api.us-east-1.amazonaws.com/production/hanzi/compounds?position=' + this.position + '&component=' + this.component)
+      .get('https://hanziapi.altusdemo.cloud/v1/hanzi/compounds?position=' + this.position + '&component=' + this.component)
       .subscribe(data => {
         let temp: any;
         temp = data;

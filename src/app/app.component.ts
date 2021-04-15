@@ -24,10 +24,20 @@ export class AppComponent {
   }
 
   ngOnInit() {
+    this.character_to_query = "明";
     this.route.queryParams.subscribe(params => {
-      this.character_to_query = params["char"];
+      if (params["char"] != undefined) {
+        this.character_to_query = params["char"];
+      }
       this.makeRequest();
-    })
+    });
+    this.main_character = {character: this.character_to_query,
+      definition: "", 
+      hsk_level: "?",
+      pinyin: "-",
+      hsk_class: "",
+      component1: "N/A",
+      component2: "N/A"}
     
   }
 
@@ -46,7 +56,7 @@ export class AppComponent {
   makeRequest(): void { 
     this.loading = true; 
     this.http
-      .get('https://780w5o5jsh.execute-api.us-east-1.amazonaws.com/production/hanzi?char=' + this.character_to_query)
+      .get('https://hanziapi.altusdemo.cloud/v1/hanzi?char=' + this.character_to_query)
       .subscribe(data => {
         if (data){
           this.main_character = data;
